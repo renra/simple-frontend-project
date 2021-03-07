@@ -3,7 +3,7 @@ version: "3.7"
 services:
   app:
     build: .
-    command: node server.js
+    command: bash -c "make dev && node server.js"
     ports:
       - "3000:3000"
     environment:
@@ -13,3 +13,5 @@ services:
     volumes:
       - ./elm.json:/usr/src/app/elm.json
       - ./src:/usr/src/app/src
+      - ./server.js:/usr/src/app/server.js
+      - ./Makefile:/usr/src/app/Makefile

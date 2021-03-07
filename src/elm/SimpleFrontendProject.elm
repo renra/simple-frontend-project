@@ -8,7 +8,7 @@ type alias Flags =
   }
 
 type alias Model =
-  {
+  { environment : String
   }
 
 type Msg = NoOp
@@ -16,7 +16,7 @@ type Msg = NoOp
 
 init : Flags -> ( Model, Cmd Msg )
 init flags =
-    ( {}
+    ( { environment = flags.environment }
     , Cmd.none
     )
 
@@ -33,7 +33,7 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-  div [] [ text "Simple Frontend Project" ]
+  div [] [ text ("Simple Frontend Project (running on env: " ++ model.environment ++ ")") ]
 
 
 main : Program Flags Model Msg

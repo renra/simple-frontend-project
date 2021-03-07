@@ -18,6 +18,9 @@ RUN app=SimpleFrontendProject && \
   echo 'greet = "Hi"' >> ${file} && \
   elm make ${file}
 
+COPY Makefile Makefile
+COPY server.js server.js
+
 # Any change in the src folder invalidates the cache of this step
 #  but the dependencies are still cached
 COPY src src
