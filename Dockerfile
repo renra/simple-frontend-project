@@ -20,6 +20,7 @@ RUN app=SimpleFrontendProject && \
 
 COPY Makefile Makefile
 COPY server.js server.js
+COPY watcher.js watcher.js
 
 # Any change in the src folder invalidates the cache of this step
 #  but the dependencies are still cached
