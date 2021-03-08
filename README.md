@@ -12,4 +12,4 @@ Showing a simple way to set-up a frontend project.
 ## Steps
 
 1) Simple dockerized and compilable project
-1) Build automation
+2) Build automation
