@@ -14,3 +14,4 @@ Showing a simple way to set-up a frontend project.
 1) Simple dockerized and compilable project
 2) Build automation
 3) Re-compiling assets after each change
+4) Making the assets production-worthy
