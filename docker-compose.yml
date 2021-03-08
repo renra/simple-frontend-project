@@ -3,11 +3,8 @@ version: "3.7"
 services:
   app:
     build: .
-    command: node server.js
-    ports:
-      - "3000:3000"
+    command: bash -c 'echo "Hello world!"'
     environment:
-      - PORT=3000
       # Modify these in your .env file
       - ENVIRONMENT=${ENVIRONMENT}
     volumes:
