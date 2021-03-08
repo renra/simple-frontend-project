@@ -33,7 +33,7 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-  div [] [ text ("Simple Frontend Project (running on env: " ++ model.environment ++ ")") ]
+  div [] [ text ("Simple Frontend Project (running in " ++ model.environment ++ ")") ]
 
 
 main : Program Flags Model Msg

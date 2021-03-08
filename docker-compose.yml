@@ -3,7 +3,7 @@ version: "3.7"
 services:
   app:
     build: .
-    command: bash -c "make dev && node server.js"
+    command: node server.js
     ports:
       - "3000:3000"
     environment:
