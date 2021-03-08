@@ -3,10 +3,12 @@ const
   fs = require('fs'),
   exec = require('child_process').exec,
   suffixesForJsRecompilation = ['elm'],
+  suffixesForCssRecompilation = ['scss'],
   compilationTimeout = 500;
 
 let
-  jsCompilationTimeoutId = null;
+  jsCompilationTimeoutId = null,
+  cssCompilationTimeoutId = null;
 
 const shouldFileTriggerRecompilation = function(filename, interestingSuffixes) {
   const
@@ -70,5 +72,11 @@ compile();
 watch('src/elm', { recursive: true }, (eventType, filename) => {
   if(shouldFileTriggerRecompilation(filename, suffixesForJsRecompilation)) {
     jsCompilationTimeoutId = debounce(jsCompilationTimeoutId, compileJs);
+  }
+});
+
+watch('src/scss', { recursive: true },(eventType, filename) => {
+  if(shouldFileTriggerRecompilation(filename, suffixesForCssRecompilation)) {
+    cssCompilationTimeoutId = debounce(cssCompilationTimeoutId, compileCss);
   }
 });

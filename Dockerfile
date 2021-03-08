@@ -4,6 +4,7 @@ ENV DIR /usr/src/app
 RUN mkdir -p ${DIR}
 WORKDIR ${DIR}
 
+RUN npm install -g sass
 RUN npm install node-watch
 
 COPY elm.json elm.json

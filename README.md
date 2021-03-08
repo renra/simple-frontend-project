@@ -15,3 +15,4 @@ Showing a simple way to set-up a frontend project.
 2) Build automation
 3) Re-compiling assets after each change
 4) Making the assets production-worthy
+4) Adding sass
