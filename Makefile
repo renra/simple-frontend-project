@@ -2,7 +2,7 @@ SRC=src
 DIST=${SRC}/dist
 JS_INPUT=${SRC}/elm/SimpleFrontendProject.elm
 JS_OUTPUT=${DIST}/app.js
-JS_MIN_OUTPUT=${DIST}/app.min.js
+JS_MIN_OUTPUT=${JS_OUTPUT}.min
 JS_MIN_GZIPPED_OUTPUT=${JS_MIN_OUTPUT}.gz
 
 CSS_INPUT=src/scss/SimpleFrontendProject.scss
