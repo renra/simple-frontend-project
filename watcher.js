@@ -61,6 +61,13 @@ const compileJs = function() {
   runTask('make compile_to_js_for_development');
 }
 
+const compileCss = function() {
+  console.log('');
+  console.log('Compiling CSS');
+
+  runTask('make compile_to_css_for_development');
+}
+
 const compile = function() {
   console.log('Compiling ...');
 
