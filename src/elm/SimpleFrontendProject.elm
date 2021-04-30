@@ -8,7 +8,7 @@ type alias Flags =
   }
 
 type alias Model =
-  { environment: String
+  { environment : String
   }
 
 type Msg = NoOp
