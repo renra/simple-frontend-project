@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  app:
+    build: .
+    command: bash -c 'echo "Hello world!"'
+    environment:
+      # Modify these in your .env file
+      - ENVIRONMENT=${ENVIRONMENT}
+    volumes:
+      - ./elm.json:/usr/src/app/elm.json
+      - ./src:/usr/src/app/src
