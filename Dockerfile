@@ -4,6 +4,8 @@ ENV DIR /usr/src/app
 RUN mkdir -p ${DIR}
 WORKDIR ${DIR}
 
+RUN npm install node-watch
+
 COPY elm.json elm.json
 
 # A trick to satisfy the elm compiler with a minimal file
@@ -17,6 +19,7 @@ RUN app=SimpleFrontendProject && \
 
 COPY Makefile Makefile
 COPY server.js server.js
+COPY watcher.js watcher.js
 
 # Any change in the src folder invalidates the cache of this step
 #  but the dependencies are still cached

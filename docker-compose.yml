@@ -3,7 +3,7 @@ version: "3.7"
 services:
   app:
     build: .
-    command: bash -c "make dev && node server.js"
+    command: node server.js
     ports:
       - "3000:3000"
     environment:
@@ -15,3 +15,12 @@ services:
       - ./src:/usr/src/app/src
       - ./server.js:/usr/src/app/server.js
       - ./Makefile:/usr/src/app/Makefile
+
+  watcher:
+    build: .
+    command: node watcher.js
+    volumes:
+      - ./elm.json:/usr/src/app/elm.json
+      - ./Makefile:/usr/src/app/Makefile
+      - ./watcher.js:/usr/src/app/watcher.js
+      - ./src:/usr/src/app/src
