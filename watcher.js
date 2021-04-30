@@ -3,10 +3,12 @@ const
   fs = require('fs'),
   exec = require('child_process').exec,
   suffixesForJsRecompilation = ['elm'],
+  suffixesForCssRecompilation = ['scss'],
   compilationTimeout = 500;
 
 let
-  jsCompilationTimeoutId = null;
+  jsCompilationTimeoutId = null,
+  cssCompilationTimeoutId = null;
 
 const shouldFileTriggerRecompilation = function(filename, interestingSuffixes) {
   const
@@ -59,6 +61,13 @@ const compileJs = function() {
   runTask('make compile_to_js_for_development');
 }
 
+const compileCss = function() {
+  console.log('');
+  console.log('Compiling CSS');
+
+  runTask('make compile_to_css_for_development');
+}
+
 const compile = function() {
   console.log('Compiling ...');
 
@@ -70,5 +79,11 @@ compile();
 watch('src/elm', { recursive: true }, (eventType, filename) => {
   if(shouldFileTriggerRecompilation(filename, suffixesForJsRecompilation)) {
     jsCompilationTimeoutId = debounce(jsCompilationTimeoutId, compileJs);
+  }
+});
+
+watch('src/scss', { recursive: true },(eventType, filename) => {
+  if(shouldFileTriggerRecompilation(filename, suffixesForCssRecompilation)) {
+    cssCompilationTimeoutId = debounce(cssCompilationTimeoutId, compileCss);
   }
 });
